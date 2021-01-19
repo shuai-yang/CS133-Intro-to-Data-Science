@@ -1,1 +1,1 @@
-# CIS133-Intro-to-Data-Science
+# CS133-Intro-to-Data-Science
