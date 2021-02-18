@@ -1,4 +1,4 @@
-# CS133-Intro-to-Data-Science
+# Intro-to-Data-Science
 Topics:
 - Causality and Experiments
 - Data Types
