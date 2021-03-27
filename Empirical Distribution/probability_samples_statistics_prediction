@@ -1,1 +1,5 @@
 Chapter 9
+ - Convenience sampling
+ - Simple random sampling without replacement (SRSWOR)
+   table.sample(num, with_placement = False)
+ - np.median() vs np.average()
