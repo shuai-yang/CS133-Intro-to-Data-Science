@@ -17,3 +17,10 @@ You can see that the old method almost always underestimates; formally, we say t
 and is highly likely to be close to the true total number of planes.
 The new method overestimates about as often as it underestimates, and thus is roughly unbiased on average in the long run. 
 However, it is more variable than the old estimate, and thus is prone to larger absolute errors.
+This is an instance of a bias-variance tradeoff that is not uncommon among competing estimates. 
+Which estimate you decide to use will depend on the kinds of errors that matter the most to you.
+
+Note:
+In fact, "twice the average" is not unbiased. On average, it overestimates by exactly 1.
+For example, if N is 3, the average of draws from 1, 2, and 3 will be 2, and 2 times 2 is 4, which is one more than N.
+"Twice the average" minus 1 is an unbiased estimator of N
