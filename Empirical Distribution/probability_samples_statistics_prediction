@@ -24,3 +24,51 @@ Note:
 In fact, "twice the average" is not unbiased. On average, it overestimates by exactly 1.
 For example, if N is 3, the average of draws from 1, 2, and 3 will be 2, and 2 times 2 is 4, which is one more than N.
 "Twice the average" minus 1 is an unbiased estimator of N
+
+
+Deterministic Samples:
+top = Table.read_table('top_movies.csv')
+top.set_format([2, 3], NumberFormatter)
+top.take([3, 18, 100]) 
+top.take(np.arange(0, top.num_rows, 40))
+
+Probability sample:
+np.random.randint(3, 8)  # select once at random from 3, 4, 5, 6, 7
+start = np.random.randint(0, 10)
+top.take(np.arange(start, top.num_rows, 10))
+
+Uniform random sample:
+top.sample(20)
+die = Table().with_column('Face', [1, 2, 3, 4, 5, 6])
+die.hist()
+dice_bins = np.arange(0.5, 7, 1)
+die.hist(bins=dice_bins)
+die.sample(10, with_replacement=True)
+def dice_hist(n):
+    rolls = die.sample(n, with_replacement=True)
+    rolls.hist(bins=dice_bins)
+dice_hist(20)
+dice_hist(10000)
+
+Iteration:
+rolls = Table(['First roll', 'Second roll'])
+for i in np.arange(100):
+    row = [roll_once(6), roll_once(6)]
+    rolls.append(row)
+rolls.hist(bins=dice_bins)
+
+Randomized response:
+def respond(true_answer):
+    if roll_once(6) >= 5:
+        return not true_answer
+    else:
+        return true_answer
+respond(False)
+
+responses = Table(['Truth', 'Response'])
+for i in np.arange(1000):
+    responses.append([False, respond(False)])
+responses.group('Response').barh('Response')
+
+Law of Averages:
+Simulation enough large times to see the probability from observations instead of counting
