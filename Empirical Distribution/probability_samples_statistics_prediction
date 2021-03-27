@@ -2,4 +2,18 @@ Chapter 9
  - Convenience sampling
  - Simple random sampling without replacement (SRSWOR)
    Table().sample(num, with_placement = False)
- - np.median() vs np.average()
+ - np.median() vs np.average()  /  np.mean()
+
+
+It is true that the probability distribution of a statistic contains more accurate information about the statistic than an empirical distribution does. 
+But often, as in this example, the approximation provided by the empirical distribution is sufficient for data scientists to understand how much a statistic can vary. 
+And empirical distributions are easier to compute, if you have a computer. Therefore, data scientists often use empirical distributions 
+instead of exact probability distributions when they are trying to understand the properties of a statistic.
+
+Notice that unlike the largest number observed, the new estimate ("twice the average") can overestimate the number of planes.
+This will happen when the average of the observed serial numbers is closer to  N  than to 1.
+
+You can see that the old method almost always underestimates; formally, we say that it is biased. But it has low variability, 
+and is highly likely to be close to the true total number of planes.
+The new method overestimates about as often as it underestimates, and thus is roughly unbiased on average in the long run. 
+However, it is more variable than the old estimate, and thus is prone to larger absolute errors.
